@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Cadastro Genero</title>
+</h:head>
+<h:body>
+	<h:form>
+
+		<h:commandButton value="Menu" action="menu.xhtml" immediate="true" />
+
+		<h1>Cadastro Genero</h1>
+		<p:growl />
+		<p:panel header="Cadastro" toggleable="true">
+			<p:panelGrid columns="2">
+
+				<h:outputText value="Genero: *" />
+				<p:selectOneMenu filter="true"
+					value="#{seriesController.generoSelecionado}"
+					converter="generoConverter" required="true"
+					requiredMessage="O campo Genero é obrigatório!">
+					<f:selectItem itemLabel="SELECIONE" />
+					<f:selectItems value="#{gerenoController.lista}" var="genero"
+						itemLabel="#{genero.descricao}" itemValue="#{genero}" />
+				</p:selectOneMenu>
+
+				<h:outputText value="Status: *" />
+				<p:selectOneMenu filter="true"
+					value="#{seriesController.statusSelecionado}"
+					converter="sConverter" required="true"
+					requiredMessage="O campo Status é obrigatório!">
+					<f:selectItem itemLabel="SELECIONE" />
+					<f:selectItems value="#{statusController.lista}" var="status"
+						itemLabel="#{status.descricao}" itemValue="#{status}" />
+				</p:selectOneMenu>
+
+				<h:outputText value="Nome: *" />
+				<p:inputText value="#{seriesController.series.nomeSeries}"
+					required="true" requiredMessage="O campo Nome é obrigatório!">
+					<f:validateLength maximum="50" />
+				</p:inputText>
+
+				<h:outputText value="Comentario: *" />
+				<p:inputText value="#{seriesController.series.comentarioSeries}"
+					required="true" requiredMessage="O campo Comentario é obrigatório!">
+					<f:validateLength maximum="200" />
+				</p:inputText>
+
+				<h:outputText value="Nota: *" />
+				<p:inputNumber value="#{seriesController.series.notaAvaliacao}"
+					required="true" requiredMessage="O campo Comentario é obrigatório!" />
+
+				<p:commandButton value="Salvar" action="#{seriesController.salvar}"
+					ajax="false" />
+				<p:commandButton value="Limpar" action="#{seriesController.limpar}"
+					ajax="false" />
+
+			</p:panelGrid>
+		</p:panel>
+	</h:form>
+</h:body>
+
+</html>

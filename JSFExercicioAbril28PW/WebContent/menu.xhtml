@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Menu</title>
+</h:head>
+<h:body>
+	<p:panel header="Menu Gestão de Séries" toggleable="true" >
+		<h:form>
+
+			<p:menubar>
+				<p:submenu label="Cadastro">
+					<p:menuitem value="Genero" outcome="cadastroGenero.xhtml" />
+					<p:menuitem value="Status" outcome="cadastroStatus.xhtml" />
+					<p:menuitem value="Series" outcome="cadastroSeries.xhtml" />
+				</p:submenu>
+				<p:submenu label="Lista">
+					<p:menuitem value="Genero" outcome="listaGenero.xhtml" />
+					<p:menuitem value="Status" outcome="listaStatus.xhtml" />
+					<p:menuitem value="Series" outcome="listaSeries.xhtml" />
+				</p:submenu>
+			</p:menubar>
+
+		</h:form>
+</p:panel>
+</h:body>
+</html>

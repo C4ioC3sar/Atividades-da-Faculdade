@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Lista Genero</title>
+</h:head>
+<h:body>
+	<h:form>
+		<h:commandLink value="Menu" action="menu.xhtml" immediate="true" />
+		<h1>Lista Genero</h1>
+		<p:growl />
+		<p:panel header="Lista" toggleable="true">
+			<p:dataTable border="1" value="#{gerenoController.lista}"
+				var="genero">
+
+				<p:column headerText="Id">
+
+					<h:outputText value="#{genero.idGenero}" />
+				</p:column>
+
+				<p:column headerText="Descrição">
+
+					<h:outputText value="#{genero.descricao}" />
+				</p:column>
+
+				<p:column headerText="Ação">
+
+					<p:commandButton value="Editar" action="#{gerenoController.editar}"
+						ajax="false">
+						<f:setPropertyActionListener value="#{genero}"
+							target="#{gerenoController.genero}" />
+					</p:commandButton>
+
+					<p:commandButton value="Excluir"
+						action="#{gerenoController.excluir}"
+						onclick="return confirm('Confirma a exclusão?');" ajax="false">
+						<f:setPropertyActionListener value="#{genero}"
+							target="#{gerenoController.genero}" />
+					</p:commandButton>
+				</p:column>
+			</p:dataTable>
+		</p:panel>
+	</h:form>
+</h:body>
+</html>
